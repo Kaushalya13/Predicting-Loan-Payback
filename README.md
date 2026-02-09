@@ -1,18 +1,31 @@
-Loan Payback Predictor
+<h1>💳 Loan Payback Predictor</h1>
 
-Loan Payback Predictor is a deep learning application for predicting loan repayment outcomes using neural networks. It processes borrower data (e.g., income, credit score, debt ratio) to forecast payback probability, built for the Kaggle Playground Series S5E11 competition.
+Loan Payback Predictor is a deep learning–based application that predicts loan repayment outcomes using neural networks.
+It analyzes borrower data such as income, credit score, and debt ratio to estimate the probability of loan payback.
+This project was developed for the Kaggle Playground Series S5E11 competition.
 
-GitHub Repository: https://github.com/Kaushalya13/Predicting-Loan-Payback
+🔗 GitHub Repository:
+https://github.com/Kaushalya13/Predicting-Loan-Payback
 
-Kaggle Competition: https://www.kaggle.com/competitions/playground-series-s5e11
+📊 Kaggle Competition:
+https://www.kaggle.com/competitions/playground-series-s5e11
 
-✨ Features
+✨ Key Features
 
-Binary classification: Predicts loan payback (1=paid back, 0=default) with probability and risk tiers (Low/Medium/High).
-Feature engineering: Custom ratios like loan_to_income_ratio and monthly_debt_burden.
-Real-time web app: Interactive form for new predictions via Flask.
-EDA integration: Visualizations for data insights (distributions, correlations, outliers).
-Ethical focus: Handles biases in features like gender and employment status.
+* Binary Classification
+Predicts loan payback (1 = Paid Back, 0 = Default) with probability scores and risk tiers.
+
+* Feature Engineering
+Custom features such as loan_to_income_ratio and monthly_debt_burden.
+
+* Real-Time Web Application
+Interactive Flask-based web form for live predictions.
+
+* Exploratory Data Analysis (EDA)
+Visual insights including distributions, correlations, and outlier detection.
+
+* Ethical AI Considerations
+Careful handling of sensitive attributes like gender and employment status.
 
 🚀 How It Works
 
@@ -23,11 +36,15 @@ Output: Displays payback chance (e.g., 78%) and assessment (e.g. Low Risk).
 
 🛠️ Tech Stack
 
-ML Framework: TensorFlow/Keras (Neural Network)
-Data Processing: pandas, numpy, scikit-learn (encoding, scaling)
-Web App: Flask (back-end API), HTML/CSS (front-end form)
-Visualization: matplotlib, seaborn
-Model Saving: joblib
+* Machine Learning: TensorFlow / Keras (Neural Networks)
+
+* Data Processing: pandas, numpy, scikit-learn
+
+* Web Framework: Flask (Back-end), HTML & CSS (Front-end)
+
+* Visualization: matplotlib, seaborn
+
+* Model Persistence: joblib
 
 🧠 Research & Data Assets
 
@@ -56,7 +73,7 @@ python app.py
 
 * Access at http://127.0.0.1:5000
 
-📝 Project Structure
+🗂️ Project Structure
 
 loan-payback-predictor/ <br/>
 ├── app.py                  # Flask back-end <br/>
