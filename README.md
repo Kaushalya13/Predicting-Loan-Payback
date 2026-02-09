@@ -54,8 +54,6 @@ Output: Displays payback chance (e.g., 78%) and assessment (e.g. Low Risk).
 
 * Metrics: ROC-AUC ~0.87–0.90, Accuracy ~88–90%
 
-* Training Notebook: [Link to Kaggle/Jupyter Notebook]
-
 * Dataset Source: Kaggle Playground Series S5E11
 
 
