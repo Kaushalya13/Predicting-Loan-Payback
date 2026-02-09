@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Payback Predictor</title>
+    <style>
+        :root {
+            /* Static high-end gradient */
+            --main-gradient: linear-gradient(135deg, #6a7aa5 0%, #685875 100%);
+            --glass-bg: rgba(255, 255, 255, 0.92);
+            --text-main: #1f2937;
+            --accent-color: #6366f1;
+        }
+
+        body { 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            background: var(--main-gradient);
+            background-attachment: fixed;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px; 
+        }
+
+        .container { 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(12px);
+            padding: 40px; 
+            border-radius: 24px; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
+            width: 100%; 
+            max-width: 950px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h2 { 
+            text-align: center; 
+            margin-bottom: 35px; 
+            font-size: 2.2rem;
+            color: #1e3a8a;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .form-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+        }
+
+        @media (max-width: 900px) { .form-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .form-grid { grid-template-columns: 1fr; } }
+
+        .input-group { display: flex; flex-direction: column; }
+
+        label { 
+            font-weight: 700; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            color: #4b5563;
+            margin-bottom: 8px;
+            margin-left: 2px;
+        }
+
+        input, select { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #d1d5db; 
+            background: #ffffff;
+            border-radius: 10px; 
+            font-size: 14px;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+            color: var(--text-main);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        button { 
+            background: #1e3a8a;
+            color: white; 
+            border: none; 
+            padding: 16px; 
+            width: 60%; 
+            border-radius: 12px; 
+            margin-top: 35px; 
+            cursor: pointer; 
+            font-size: 18px; 
+            font-weight: 700;
+            transition: background 0.2s;
+            position: relative;
+            left: 20%;
+        }
+
+
+        .result-box { 
+            margin-top: 30px; 
+            padding: 25px; 
+            border-radius: 16px; 
+            color: white; 
+            text-align: center; 
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>💳 Loan Payback Predictor</h2>
+        <form action="/predict" method="post">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Annual Income ($)</label>
+                    <input type="number" name="annual_income" value="60000" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label>Debt-to-Income</label>
+                    <input type="number" name="debt_to_income_ratio" value="0.2" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label>Credit Score</label>
+                    <input type="number" name="credit_score" value="720" required>
+                </div>
+                <div class="input-group">
+                    <label>Loan Amount ($)</label>
+                    <input type="number" name="loan_amount" value="10000" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label>Interest Rate (%)</label>
+                    <input type="number" name="interest_rate" value="10.5" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select name="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Marital Status</label>
+                    <select name="marital_status">
+                        <option>Single</option>
+                        <option>Married</option>
+                        <option>Divorced</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Education</label>
+                    <select name="education_level">
+                        <option>High School</option>
+                        <option selected>Bachelor's</option>
+                        <option>Master's</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Employment</label>
+                    <select name="employment_status">
+                        <option>Employed</option>
+                        <option>Unemployed</option>
+                        <option>Student</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Loan Purpose</label>
+                    <select name="loan_purpose">
+                        <option>Debt consolidation</option>
+                        <option>Home</option>
+                        <option>Car</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Grade</label>
+                    <select name="grade_subgrade">
+                        <option>A1</option>
+                        <option selected>B1</option>
+                        <option>C1</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit">🔮 Predict Payback</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result-box" style="background-color: {{ color }};">
+            <h3 style="margin: 0; font-size: 1.5rem;">{{ prediction_text }}</h3>
+            <p style="margin: 10px 0 0 0; font-size: 1.1rem; opacity: 0.9;">{{ status }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
